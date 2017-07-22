@@ -463,11 +463,11 @@ useless_function = -> print "Really useless."
 Functions always return the last value they evaluate.
 
 ```dg
-definitely_not_4 = x ->
+definitely_4 = x ->
     x + 2
     4
 
-definitely_not_4 40  #=> not 4
+definitely_4 56  #=> 4
 ```
 
 Unless you use an explicit `return`, in which case they don't.
