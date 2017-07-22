@@ -480,6 +480,20 @@ its_4_after_all = x ->
 its_4_after_all 11  #=> 13
 ```
 
+> # Warning:
+> [As `return` is a function rather than a keyword](#return-looks-weird), you should avoid such cases:
+>
+> ```dg
+> my_func = x ->
+>     return x + 2
+>
+> my_func2 = x ->
+>     return (x + 2)
+>
+> print <| my_func 5  #=> 5
+> print <| my_func2 5  #=> 7
+> ```
+
 Decorators don't need special syntax anymore. Simply call them with a function.
 
 ```dg
@@ -496,7 +510,7 @@ count = start ->
   yield from count (start + 1)
 ```
 
-##### Q: That "return" looks weird.
+##### <a name="return-looks-weird"></a>Q: That "return" looks weird.
 
 That's because, unlike most other languages, it's not technically a keyword, but a function.
 So you can't just say `return x + 2`. `f x + 2` means `(f x) + 2`, so that would be
